@@ -1,27 +1,26 @@
 import { createStore } from "vuex";
-import axios from "axios";
-
-export default createStore({
+// import donatur from "./modules/donatur";
+// import clients from "./modules/clients";
+// import transaksi from "./modules/transaksi";
+// import users from "./modules/users";
+// import berita from "./modules/berita";
+import product from "./modules/Product.js";
+import categories from "./modules/categories.js";
+import auth from "./modules/auth.js";
+const store = createStore({
     state: {
-        products : []
+        isLoading: false,
     },
-    getters: {
-        getProducts: (state) => state.products
+    modules: {
+        // donatur,
+        // clients,
+        // transaksi,
+        // users,
+        // berita,
+        product,
+        categories,
+        auth,
     },
-    actions: {
-        async fetchProduct({ commit }) {
-            try {
-                const dataProduct = await axios.get("https://fakestoreapi.com/products")
-                commit('SET_PRODUCTS', dataProduct.data)
-            } catch (error) {
-                alert ('Ada error')
-                console.log(error)
-            }
-        }
-    },
-    mutations: {
-        SET_PRODUCTS(state, products) {
-            state.products = products
-        }
-    }
-})
+});
+
+export default store;

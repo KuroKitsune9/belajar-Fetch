@@ -1,5 +1,5 @@
 <template>
-         <div class="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50">
+        <div class="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50">
         <div class="relative mt-8">
 
             <div class="hidden sm:block h-56 w-56 text-indigo-300 absolute a-z-10 -left-20 -top-20">

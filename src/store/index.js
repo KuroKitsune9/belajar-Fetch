@@ -7,6 +7,8 @@ import { createStore } from "vuex";
 import product from "./modules/Product.js";
 import categories from "./modules/categories.js";
 import auth from "./modules/auth.js";
+import surah from "./modules/surah.js";
+
 const store = createStore({
     state: {
         isLoading: false,
@@ -20,6 +22,7 @@ const store = createStore({
         product,
         categories,
         auth,
+        surah,
     },
 });
 

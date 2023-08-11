@@ -1,31 +1,30 @@
 <template>
-    <div>
-        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Category</h1>
-        <br>
-        <div class="grid md:grid-cols-4 gap-8">
-            <div v-for="data in getCategories"
-                class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-                    
-                <div class="px-5 pb-5">
-                    <h4>{{ data }}</h4>
-                    <div class="flex items-center mt-2.5 mb-5">
-                        <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 22 20">
-                            <path
-                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white">Lihat</p>
-                    </div>
-                    
+    <div class="bg-white">
+        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <h2 class="text-2xl font-semibold tracking-tight text-gray-900">Category Product</h2>
+            <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div v-for="category in getCategories" class="group relative">
+                    <router-link :to="/category/ + category">
+                        <div
+                            class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                            <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                alt="Front of men&#039;s Basic Tee in black."
+                                class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                        </div>
+                        <div  class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-1xl font-medium text-gray-700">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        {{ capitalizeFirstLetter(category) }}
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                    </router-link>
                 </div>
             </div>
-
         </div>
-    </div>
     </div>
 </template>
 
@@ -50,10 +49,14 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters('categories', ['getCategories']),
+        ...mapGetters('categories', ['getCategories',]),
     },
     methods: {
         ...mapActions('categories', ['fetchCategories']),
+        capitalizeFirstLetter(text) {
+            return text.charAt(0).toUpperCase() + text.slice(1);
+        },
+
     },
     created() {
         this.fetchCategories();
@@ -61,6 +64,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

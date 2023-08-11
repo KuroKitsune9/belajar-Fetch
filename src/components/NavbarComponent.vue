@@ -15,6 +15,7 @@
                         <li><router-link to="/">Home</router-link></li>
                         <li><router-link to="/category">category</router-link></li>
                         <li><router-link to="/About">About</router-link></li>
+                        <li><router-link to="/surah">surah</router-link></li>
                     </ul>
                     <!-- Header Icons -->
                     <div class="hidden xl:flex items-center space-x-5 items-center">

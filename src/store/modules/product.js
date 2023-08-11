@@ -1,11 +1,10 @@
-import { createStore } from "vuex";
+// import { createStore } from "vuex";
 import axios from "axios";
 
 const product = {
     namespaced: true,
     state: {
         productsData: [],
-        // categories : [],
     },
     getters: {
         getProducts: (state) => state.productsData,

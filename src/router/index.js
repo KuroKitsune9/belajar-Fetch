@@ -3,7 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ProductsView from '../views/ProductsView.vue'
 import CategoryComponent from '../views/CategoryComponent.vue'
 import SingleProduct from "../views/SingleProduct.vue";
-import Login from '../views/Login.vue'
+import Login from '../views/Login.vue';
+import CategoryDetail from '../views/CategoryDetail.vue';
+// import SingleSurah from '../views/SingleSurah.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +38,22 @@ const router = createRouter({
       name: "SingleProduct",
       component: SingleProduct,
     },
+    {
+      path: "/Surah",
+      name: 'surah',
+      component: () => import('../views/Surah.vue')
+    },
+    {
+      path: "/surah/:id",
+      name: "SingleSurah",
+      component: () => import('../views/SingleSurah.vue')
+    },
+    {
+      path: '/category/:category_nama',
+      name: 'CategoryDetail',
+      component: CategoryDetail,
+      props : true
+    }
   ]
 })
 
